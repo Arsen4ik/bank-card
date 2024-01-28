@@ -1,10 +1,18 @@
 export type Card = {
-    id: number
+    id: string,
     name: string;
     number: string;
-    month: number;
-    year: number;
-    cvc: number;
+    month: string;
+    year: string;
+    cvc: string;
+}
+
+export type newCard = {
+    name: string;
+    number: string;
+    month: string;
+    year: string;
+    cvc: string;
 }
 
 export type CardListProps = {

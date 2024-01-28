@@ -20,9 +20,6 @@ const CardList = (props: CardListProps) => {
                     }
                 </tbody>
             </table>
-            {/* {
-                JSON.stringify(cardList, null, 4)
-            } */}
         </div>
     );
 }

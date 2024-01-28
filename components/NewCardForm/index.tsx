@@ -5,14 +5,8 @@ import { useLayoutEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import FormInput from "../FormInput/FormInput";
 import { formInputInfo } from "./formInputsInfo";
-
-export type FormData = {
-    name: string;
-    number: string;
-    month: string;
-    year: string;
-    cvc: string;
-};
+import { insertNewCard } from "@/utils/actions";
+import type { newCard } from "@/types/types";
 
 const NewCardForm = () => {
     const [showInputNumberData, setShowInputNumberData] = useState<string>('');
@@ -22,14 +16,14 @@ const NewCardForm = () => {
         handleSubmit,
         reset,
         formState: { errors },
-    } = useForm<FormData>({ mode: 'onChange' })
+    } = useForm<newCard>({ mode: 'onChange' })
     // } = useForm<FormData>({ mode: 'onBlur' })
 
-    const onSubmit = (data: FormData) => {
+    const onSubmit = (data: newCard) => {
         reset()
         setShowInputNumberData('')
-        console.log(data);
-        // insertNewCard(data)
+        // console.log(data);
+        insertNewCard(data)
     }
 
     const inputName = {
