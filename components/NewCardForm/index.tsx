@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useLayoutEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import FormInput from "../FormInput/FormInput";
+import FormInput from "../FormInput";
 import { formInputInfo } from "./formInputsInfo";
 import { insertNewCard } from "@/utils/actions";
 import type { newCard } from "@/types/types";
@@ -68,7 +68,7 @@ const NewCardForm = () => {
         })
     }
 
-    const handleChangeNumber = (e: any) => {
+    const handleChangeNumber: React.ChangeEventHandler<HTMLInputElement> = (e) => {
         const formattedValue = e.target.value.replace(/[^0-9]/g, '').replace(/(.{4})/g, '$1 ').trim();
         setShowInputNumberData(formattedValue);
         inputNumber.onChange(e);
